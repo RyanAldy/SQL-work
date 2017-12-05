@@ -1,0 +1,25 @@
+select nvl(job_id, 0) as job, count(*) as no_of_emp, sum(salary + nvl(commission_pct,0)) as sum_of_salary, avg(salary) as average
+from employees
+group by job_id
+having count(2) >= 5
+and avg(salary) > (select avg(salary) from employees)
+order by no_of_emp, job_id;
+
+
+INNER JOIN (simple join)
+
+Chances are, you've already written a statement that uses an Oracle INNER JOIN. It is the most common type of join. Oracle INNER JOINS return all rows from multiple tables where the join condition is met.
+
+LEFT OUTER JOIN
+
+Another type of join is called an Oracle LEFT OUTER JOIN. This type of join returns all rows from the LEFT-hand table specified in the ON condition and only those rows from the other table where the joined fields are equal (join condition is met).
+
+RIGHT OUTER JOIN
+
+Another type of join is called an Oracle RIGHT OUTER JOIN. This type of join returns all rows from the RIGHT-hand table specified in the ON condition and only those rows from the other table where the joined fields are equal (join condition is met).
+The RIGHT JOIN keyword returns all records from the right table, even if there are no matches in the left table
+
+FULL OUTER JOIN
+
+Another type of join is called an Oracle FULL OUTER JOIN. This type of join returns all rows from the LEFT-hand table and RIGHT-hand table with nulls in place where the join condition is not met.
+
